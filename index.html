@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Commis | Portofolio & Komisi Layanan Futuristik</title>
+  <meta name="description" content="Cloud Commis — portofolio dan komisi layanan kreatif bertema awan neon. Ilustrasi, website, desain grafis, dan jasa kustom.">
+  <meta name="theme-color" content="#0b0f19">
+  <meta property="og:title" content="Cloud Commis | Portofolio & Komisi Futuristik">
+  <meta property="og:description" content="Layanan komisi digital, ilustrasi, branding, dan web development bertema awan neon.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="cloud-canvas" aria-hidden="true"></canvas>
+  <div class="cloud-ambient-orb orb-1" aria-hidden="true"></div>
+  <div class="cloud-ambient-orb orb-2" aria-hidden="true"></div>
+  <div class="cloud-ambient-orb orb-3" aria-hidden="true"></div>
+  <div class="cloud-drift cloud-d1" aria-hidden="true"></div>
+  <div class="cloud-drift cloud-d2" aria-hidden="true"></div>
+  <div class="cloud-drift cloud-d3" aria-hidden="true"></div>
+
+  <aside id="admin-topbar" class="admin-topbar hidden">
+    <div class="admin-topbar-inner">
+      <div class="admin-status">
+        <span class="status-indicator"></span>
+        <span>Mode Admin Aktif — Dashboard manajemen Cloud Commis</span>
+      </div>
+      <div class="admin-actions">
+        <button type="button" id="btn-open-dashboard" class="btn-admin-action neon-btn-sm">
+          <i class="fa-solid fa-sliders"></i> Buka Dashboard
+        </button>
+        <button type="button" id="btn-admin-logout" class="btn-admin-action btn-danger-sm">
+          <i class="fa-solid fa-right-from-bracket"></i> Keluar
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <header class="navbar-wrapper" id="navbar-wrapper">
+    <nav class="neon-navbar container" id="navbar" aria-label="Navigasi Utama">
+      <a href="#hero" class="brand-logo" aria-label="Cloud Commis Beranda">
+        <div class="css-cloud-logo" aria-hidden="true">
+          <span class="puff p1"></span>
+          <span class="puff p2"></span>
+          <span class="puff p3"></span>
+          <span class="puff p4"></span>
+          <span class="puff body"></span>
+          <span class="sparkle">✦</span>
+          <span class="face">
+            <span class="eye e-left"></span>
+            <span class="eye e-right"></span>
+            <span class="blush b-left"></span>
+            <span class="blush b-right"></span>
+            <span class="smile"></span>
+          </span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CLOUD<span class="brand-accent"> COMMIS</span></span>
+          <span class="brand-sub">NEON CLOUD STUDIO</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#layanan" class="nav-link">Layanan</a></li>
+        <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+        <li><a href="#tim" class="nav-link">Tim</a></li>
+        <li><a href="#ulasan" class="nav-link">Ulasan</a></li>
+        <li>
+          <button type="button" id="nav-btn-admin" class="nav-link btn-admin-toggle">
+            <i class="fa-solid fa-lock"></i> <span id="admin-nav-text">Login Admin</span>
+          </button>
+        </li>
+        <li class="mobile-only-cta">
+          <a class="btn-nav-order mobile-nav-btn" href="https://wa.me/6281513681271?text=Halo%20Cloud%20Commis,%20saya%20ingin%20order%20layanan%20Anda." target="_blank" rel="noopener noreferrer">Order via WA</a>
+        </li>
+        <li class="mobile-only-cta">
+          <a class="btn-nav-channel mobile-nav-btn" href="https://whatsapp.com/channel/0029VaiWHvUBPzjPwVOSrQ2l" target="_blank" rel="noopener noreferrer">Saluran WA</a>
+        </li>
+      </ul>
+
+      <div class="nav-cta-group">
+        <a class="btn-nav-order" href="https://wa.me/6281513681271?text=Halo%20Cloud%20Commis,%20saya%20ingin%20order%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i> <span>Order via WA</span>
+        </a>
+        <a class="btn-nav-channel" href="https://whatsapp.com/channel/0029VaiWHvUBPzjPwVOSrQ2l" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-bullhorn"></i> <span>Saluran WA</span>
+        </a>
+      </div>
+
+      <button type="button" class="nav-hamburger" id="nav-hamburger" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Portofolio &amp; Komisi Layanan Awan Futuristik
+          </div>
+          <h1 class="hero-title">
+            Cloud Commis — Karya Digital yang <span class="neon-text-glow">Bersinar di Awan</span>
+          </h1>
+          <p class="hero-description">
+            Studio komisi kreatif untuk ilustrasi, website portofolio, branding, dan proyek kustom. Estetika neon cloud, pengerjaan rapi, dan order langsung lewat WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-neon-primary" href="https://wa.me/6281513681271?text=Halo%20Cloud%20Commis,%20saya%20ingin%20order%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp"></i> Order Sekarang
+            </a>
+            <a class="btn-neon-secondary" href="https://whatsapp.com/channel/0029VaiWHvUBPzjPwVOSrQ2l" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-rss"></i> Gabung Saluran WhatsApp
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card"><strong>500+</strong><span>Proyek selesai</span></div>
+            <div class="stat-card"><strong>4.9★</strong><span>Rating klien</span></div>
+            <div class="stat-card"><strong>24/7</strong><span>Respon WA</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-cloud-stage">
+            <div class="css-cloud-logo hero-mascot">
+              <span class="puff p1"></span>
+              <span class="puff p2"></span>
+              <span class="puff p3"></span>
+              <span class="puff p4"></span>
+              <span class="puff body"></span>
+              <span class="sparkle">✦</span>
+              <span class="face">
+                <span class="eye e-left"></span>
+                <span class="eye e-right"></span>
+                <span class="blush b-left"></span>
+                <span class="blush b-right"></span>
+                <span class="smile"></span>
+              </span>
+            </div>
+            <div class="orbit-ring r1"></div>
+            <div class="orbit-ring r2"></div>
+            <div class="orbit-ring r3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="layanan">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">KOMISI &amp; JASA KAMI</span>
+          <h2 class="section-title">Layanan Kreatif <span class="neon-text-glow">Serba Digital</span></h2>
+          <p class="section-subtitle">Paket komisi siap order. Admin dapat menambah, mengedit, atau menghapus paket dari dashboard.</p>
+        </div>
+        <div class="services-grid" id="services-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-container" id="portofolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">GALERI KARYA</span>
+          <h2 class="section-title">Portofolio <span class="neon-text-glow">Cloud Cards</span></h2>
+          <p class="section-subtitle">Foto karya diunggah admin dari perangkat lokal dan tersimpan di browser (IndexedDB / LocalStorage).</p>
+        </div>
+        <div class="portfolio-grid" id="portfolio-grid"></div>
+        <div class="empty-state hidden" id="portfolio-empty">
+          <p>Belum ada foto portofolio. Admin dapat mengunggah karya dari dashboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="tim">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">SQUAD KREATIF</span>
+          <h2 class="section-title">Tim Ahli di Balik <span class="neon-text-glow">Cloud Commis</span></h2>
+          <p class="section-subtitle">Kreator di balik setiap komisi. Data dan foto dikelola dari dashboard admin.</p>
+        </div>
+        <div class="team-grid" id="team-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-container" id="ulasan">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">SUARA PENGUNJUNG</span>
+          <h2 class="section-title">Ulasan &amp; Komentar Pengunjung <span class="neon-text-glow">Cloud Commis</span></h2>
+          <p class="section-subtitle">Berikan rating dan testimoni. Setiap pengunjung hanya dapat mengirim satu ulasan permanen di perangkat ini.</p>
+        </div>
+
+        <form class="review-form glass-card" id="form-review">
+          <div class="star-picker" id="star-picker" role="radiogroup" aria-label="Rating bintang">
+            <button type="button" data-star="1" aria-label="1 bintang">★</button>
+            <button type="button" data-star="2" aria-label="2 bintang">★</button>
+            <button type="button" data-star="3" aria-label="3 bintang">★</button>
+            <button type="button" data-star="4" aria-label="4 bintang">★</button>
+            <button type="button" data-star="5" aria-label="5 bintang">★</button>
+          </div>
+          <input type="hidden" id="review-rating" value="5">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-name">Nama</label>
+              <input type="text" id="review-name" maxlength="60" required placeholder="Nama Anda">
+            </div>
+            <div class="form-group">
+              <label for="review-role">Profesi / Peran</label>
+              <input type="text" id="review-role" maxlength="60" required placeholder="Contoh: Desainer, Mahasiswa">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="review-comment">Komentar / Testimoni</label>
+            <textarea id="review-comment" rows="4" maxlength="500" required placeholder="Ceritakan pengalaman Anda bersama Cloud Commis..."></textarea>
+          </div>
+          <button type="submit" class="btn-neon-primary" id="btn-submit-review">Kirim Ulasan</button>
+        </form>
+        <div class="review-locked hidden glass-card" id="review-locked">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>Terima kasih! Ulasan Anda telah tersimpan dan tidak dapat diubah lagi.</p>
+        </div>
+        <div class="reviews-grid" id="reviews-grid"></div>
+      </div>
+    </section>
+
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-cloud-box">
+          <h2>Siap order komisi Cloud Commis?</h2>
+          <p>Chat langsung ke WhatsApp resmi kami.</p>
+          <div class="cta-btn-group">
+            <a class="btn-cta-wa" href="https://wa.me/6281513681271?text=Halo%20Cloud%20Commis,%20saya%20ingin%20order%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp"></i> Chat +62 815-1368-1271
+            </a>
+            <a class="btn-cta-channel" href="https://whatsapp.com/channel/0029VaiWHvUBPzjPwVOSrQ2l" target="_blank" rel="noopener noreferrer">
+              Gabung Saluran WA
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="neon-footer">
+    <div class="container footer-container">
+      <div>
+        <div class="footer-logo">☁ CLOUD<span>COMMIS</span></div>
+        <p>Portofolio &amp; komisi layanan digital bertema awan futuristik.</p>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#portofolio">Portofolio</a></li>
+          <li><a href="#tim">Tim</a></li>
+          <li><a href="#ulasan">Ulasan</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p><a href="https://wa.me/6281513681271" target="_blank" rel="noopener noreferrer">+62 815-1368-1271</a></p>
+        <p><a href="https://whatsapp.com/channel/0029VaiWHvUBPzjPwVOSrQ2l" target="_blank" rel="noopener noreferrer">Saluran WhatsApp</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cloud Commis. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a class="wa-fab-btn" href="https://wa.me/6281513681271?text=Halo%20Cloud%20Commis,%20saya%20ingin%20order%20layanan%20Anda." target="_blank" rel="noopener noreferrer" aria-label="Order via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <div class="modal-overlay hidden" id="modal-login" role="dialog" aria-modal="true" aria-labelledby="modal-login-title">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="modal-login-close" aria-label="Tutup">&times;</button>
+      <h3 id="modal-login-title">Login Admin</h3>
+      <p class="modal-subtitle">Masukkan kata sandi untuk membuka dashboard.</p>
+      <form id="form-admin-login">
+        <label for="admin-password">Kata sandi</label>
+        <input type="password" id="admin-password" name="password" required autocomplete="current-password">
+        <p class="login-error-msg hidden" id="login-error-msg">Akses ditolak. Coba lagi.</p>
+        <button type="submit" class="btn-neon-primary">Masuk</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="modal-dashboard" role="dialog" aria-modal="true" aria-labelledby="dashboard-title">
+    <div class="modal-card dashboard-card">
+      <button type="button" class="modal-close-btn" id="modal-dashboard-close" aria-label="Tutup">&times;</button>
+      <h3 id="dashboard-title">Dashboard Admin</h3>
+      <div class="dash-tabs" role="tablist">
+        <button type="button" class="dash-tab active" data-tab="portfolio">Upload Portofolio</button>
+        <button type="button" class="dash-tab" data-tab="services">Kelola Layanan</button>
+        <button type="button" class="dash-tab" data-tab="team">Kelola Tim</button>
+        <button type="button" class="dash-tab" data-tab="reviews">Moderasi Ulasan</button>
+      </div>
+
+      <div class="dash-panel" id="panel-portfolio">
+        <form id="form-upload-portfolio">
+          <label for="portfolio-file">File gambar</label>
+          <input type="file" id="portfolio-file" accept="image/*" required>
+          <img id="portfolio-preview" class="thumb-preview hidden" alt="Preview portofolio">
+          <label for="portfolio-title">Judul</label>
+          <input type="text" id="portfolio-title" required>
+          <label for="portfolio-desc">Deskripsi</label>
+          <textarea id="portfolio-desc" rows="3" required></textarea>
+          <button type="submit" class="btn-neon-primary">Simpan ke Galeri</button>
+        </form>
+        <div class="admin-list" id="admin-portfolio-list"></div>
+      </div>
+
+      <div class="dash-panel hidden" id="panel-services">
+        <form id="form-service">
+          <input type="hidden" id="service-id">
+          <label for="service-badge">Badge status</label>
+          <input type="text" id="service-badge" placeholder="POPULAR / TERBAIK / FAST DELIVERY / CUSTOM">
+          <label for="service-icon">Ikon (kelas Font Awesome)</label>
+          <input type="text" id="service-icon" placeholder="fa-solid fa-paintbrush" value="fa-solid fa-cloud">
+          <label for="service-title">Judul paket</label>
+          <input type="text" id="service-title" required>
+          <label for="service-desc">Deskripsi</label>
+          <textarea id="service-desc" rows="3" required></textarea>
+          <label for="service-features">Fitur (satu baris satu item)</label>
+          <textarea id="service-features" rows="4" required></textarea>
+          <label for="service-price">Harga / CTA</label>
+          <input type="text" id="service-price" placeholder="Mulai Rp 50.000">
+          <div class="form-actions">
+            <button type="submit" class="btn-neon-primary">Simpan Paket</button>
+            <button type="button" class="btn-ghost" id="btn-reset-service">Batal Edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="admin-service-list"></div>
+      </div>
+
+      <div class="dash-panel hidden" id="panel-team">
+        <form id="form-team">
+          <input type="hidden" id="team-id">
+          <label for="team-photo">Foto profil</label>
+          <input type="file" id="team-photo" accept="image/*">
+          <img id="team-preview" class="thumb-preview hidden" alt="Preview foto tim">
+          <label for="team-name">Nama</label>
+          <input type="text" id="team-name" required>
+          <label for="team-role">Role / jabatan</label>
+          <input type="text" id="team-role" required>
+          <label for="team-bio">Biografi singkat</label>
+          <textarea id="team-bio" rows="3" required></textarea>
+          <label for="team-skills">Tag keahlian (pisahkan koma)</label>
+          <input type="text" id="team-skills" placeholder="Figma, HTML5/CSS3, Photoshop">
+          <label for="team-linkedin">LinkedIn</label>
+          <input type="url" id="team-linkedin" placeholder="https://">
+          <label for="team-instagram">Instagram</label>
+          <input type="url" id="team-instagram" placeholder="https://">
+          <label for="team-behance">Behance</label>
+          <input type="url" id="team-behance" placeholder="https://">
+          <label for="team-wa">WhatsApp</label>
+          <input type="text" id="team-wa" value="https://wa.me/6281513681271">
+          <div class="form-actions">
+            <button type="submit" class="btn-neon-primary">Simpan Anggota</button>
+            <button type="button" class="btn-ghost" id="btn-reset-team">Batal Edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="admin-team-list"></div>
+      </div>
+
+      <div class="dash-panel hidden" id="panel-reviews">
+        <div class="admin-list" id="admin-review-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="modal-lightbox" role="dialog" aria-modal="true">
+    <div class="lightbox-card">
+      <button type="button" class="modal-close-btn" id="lightbox-close" aria-label="Tutup">&times;</button>
+      <img id="lightbox-img" alt="Preview karya">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-desc"></p>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
